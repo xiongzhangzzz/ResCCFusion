@@ -2,7 +2,7 @@
 import torch
 from torch.autograd import Variable
 from net import ResCCNet_atten_fuse
-from utils import list_images,make_floor
+# from utils import list_images,make_floor
 import utils
 from args_fusion import get_parser
 import numpy as np
@@ -66,9 +66,9 @@ def main():
 	strategy_type =  'cc_atten'
 	kernel_size = [[16,1], [8,1],[4,1],[2,1],[1,1]]
 	kernel_size = kernel_size[1]
-	# output_path = args.output_path
-	# if os.path.exists(output_path) is False:
-	# 	os.mkdir(output_path)
+	output_path = args.output_path
+	if os.path.exists(output_path) is False:
+		os.makedirs(output_path)
 
 	in_c = 1
 	out_c = in_c
@@ -76,9 +76,6 @@ def main():
 	model_path = args.model_path # ssim weight is 1
 	ssim_name = model_path[-9:-6]
 	network_type = 'ResDFuse_'+strategy_type+ '_kernelsize_'+str(kernel_size[0])+'_'+ssim_name
-	output_path = os.path.join(test_path, 'img/'+network_type)
-	if os.path.exists(output_path) is False:
-		os.mkdir(output_path)
 
 	with torch.no_grad():
 		# print('SSIM weight ----- ' + args.ssim_path[0])
