@@ -5,8 +5,8 @@ def get_parser():
 	parser.add_argument("--epochs", type=int, default=4)
 	parser.add_argument("--batch_size", type=int, default=4)
 	parser.add_argument("--dataset", type=str, default="./mscoco database/train2014")
-	parser.add_argument("--HEIGHT", type=int, default=256)
-	parser.add_argument("--WIDTH",type=int, default=256)
+	# parser.add_argument("--HEIGHT", type=int, default=256)
+	# parser.add_argument("--WIDTH",type=int, default=256)
 	parser.add_argument("--save_model_dir", type=str, default="./models")
 	parser.add_argument("--save_loss_dir", type=str, default="./models/loss")
 	parser.add_argument("--image_size", type=int, default=256)
@@ -35,7 +35,7 @@ def get_parser():
 	parser.add_argument("--test_path", type = str, default='./testimages/21pairs/')
 	parser.add_argument("--kernel_size", default=[8,1])
 
-	# parser.add_argument("--output_path", type = str, default='./output/21pairs/')
+	parser.add_argument("--output_path", type = str, default='./results/21pairs/')
 	return parser
 
 
